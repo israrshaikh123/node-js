@@ -1,5 +1,9 @@
 # 📝 Real-Time Todo Management System
 
+# Here is the link of this project's explaiantion video 
+
+https://www.loom.com/share/282b365703ac404fa3e6593fbade3361
+
 A full-stack Todo Management System built with **Node.js**, **Express.js**, and **EJS** templating engine. This application allows users to manage their daily tasks through a professional and responsive interface.
 
 ---
