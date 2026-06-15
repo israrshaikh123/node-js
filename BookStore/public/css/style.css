@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+.navbar {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 15px 30px !important;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white !important;
+}
+
+.card {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 16px !important;
+  color: white !important;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 220px !important;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white !important;
+}
+
+.card-text {
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 0.9rem;
+}
+
+.card-footer {
+  background: rgba(255,255,255,0.05) !important;
+  border-top: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 0 0 16px 16px !important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #43e97b, #38f9d7) !important;
+  border: none !important;
+  color: #1a1a2e !important;
+  font-weight: 600;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #f093fb, #f5576c) !important;
+  border: none !important;
+  color: white !important;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
+  border: none !important;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: white !important;
+}
+
+.form-control, .form-select {
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+
+::placeholder {
+  color: rgba(255,255,255,0.4) !important;
+}
+
+h2 {
+  color: white;
+  font-weight: 700;
+}

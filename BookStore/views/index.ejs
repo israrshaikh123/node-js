@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<div class="container mt-4">
+  <h2 class="mb-4">All Books</h2>
+  <div class="row">
+    <% books.forEach(book => { %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <img src="/uploads/<%= book.image %>" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title"><%= book.title %></h5>
+          <p class="card-text">Author: <%= book.author %></p>
+          <p class="card-text">Category: <%= book.category %></p>
+          <p class="card-text">Price: ₹<%= book.price %></p>
+          <p class="card-text">Quantity: <%= book.quantity %></p>
+        </div>
+        <div class="card-footer d-flex gap-2">
+          <a href="/edit-book/<%= book._id %>" class="btn btn-warning btn-sm">Edit</a>
+          <a href="/delete-book/<%= book._id %>" class="btn btn-danger btn-sm">Delete</a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
