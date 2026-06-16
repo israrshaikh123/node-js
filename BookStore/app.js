@@ -33,5 +33,5 @@ app.use("/", bookRoutes(upload));
 
 const PORT = 8000;
 app.listen(PORT, () => {
-  console.log(`localhost${PORT}`);
+  console.log(`http://localhost${PORT}`);
 });

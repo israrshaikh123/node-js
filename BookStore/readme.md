@@ -1,5 +1,9 @@
 # 📚 BookStore Management System
 
+## Video explanation link
+
+https://drive.google.com/drive/folders/1UGn4-wJe6pvB2LWnhR9a-xw-ZHaRinHl
+
 A full-stack Book Store Management System built with **Node.js**, **Express.js**, **MongoDB**, and **EJS** templating engine. The system supports complete CRUD operations with image upload functionality using Multer.
 
 ---
@@ -25,16 +29,16 @@ Build a web-based Book Store Management System where users can efficiently manag
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| Node.js | Backend Runtime |
-| Express.js | Web Framework |
-| MongoDB | Database |
-| Mongoose | MongoDB ODM |
-| EJS | Templating Engine |
-| Multer | Image Upload |
-| Bootstrap 5 | UI Styling |
-| Nodemon | Live Server |
+| Technology  | Usage             |
+| ----------- | ----------------- |
+| Node.js     | Backend Runtime   |
+| Express.js  | Web Framework     |
+| MongoDB     | Database          |
+| Mongoose    | MongoDB ODM       |
+| EJS         | Templating Engine |
+| Multer      | Image Upload      |
+| Bootstrap 5 | UI Styling        |
+| Nodemon     | Live Server       |
 
 ---
 
@@ -103,26 +107,28 @@ Browser Response
 
 ## 🔗 Available Routes
 
-| Method | Route | Description |
-|--------|-------|-------------|
-| GET | `/` | View all books |
-| GET | `/add-book` | Add book form |
-| POST | `/add-book` | Save new book |
-| GET | `/edit-book/:id` | Edit book form |
-| POST | `/edit-book/:id` | Update book |
-| GET | `/delete-book/:id` | Delete book |
+| Method | Route              | Description    |
+| ------ | ------------------ | -------------- |
+| GET    | `/`                | View all books |
+| GET    | `/add-book`        | Add book form  |
+| POST   | `/add-book`        | Save new book  |
+| GET    | `/edit-book/:id`   | Edit book form |
+| POST   | `/edit-book/:id`   | Update book    |
+| GET    | `/delete-book/:id` | Delete book    |
 
 ---
 
 ## ⚙️ Installation & Setup
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/your-username/BookStore.git
 cd BookStore
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
@@ -130,11 +136,13 @@ npm install
 3. **Start MongoDB** (make sure MongoDB is running)
 
 4. **Start the server**
+
 ```bash
 npm run dev
 ```
 
 5. **Open in browser**
+
 ```
 http://localhost:8000
 ```
@@ -144,12 +152,15 @@ http://localhost:8000
 ## 📸 Screenshots
 
 ### Home — All Books
+
 ![Home](public/images/ss1.png)
 
 ### Add Book
+
 ![Add-Book](public/images/ss4.png)
 
 ### Edit Book
+
 ![Edit-Book](public/images/ss2.png)
 
 ![Database](public/images/ss3.png)
