@@ -1,5 +1,9 @@
 # 🖥️ Admin Panel — HTML to Node.js MVC Conversion
 
+## Video explanation link
+
+https://drive.google.com/drive/folders/1UGn4-wJe6pvB2LWnhR9a-xw-ZHaRinHl
+
 A professional Admin Panel converted from static HTML (AdminLTE template) to a dynamic **Node.js + Express.js + EJS** application following the **MVC architecture pattern**.
 
 ---
@@ -24,13 +28,13 @@ Convert a static HTML Admin Panel into a fully functional Node.js application us
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| Node.js | Backend Runtime |
-| Express.js | Web Framework |
-| EJS | Templating Engine |
-| AdminLTE | UI Template |
-| Bootstrap 5 | CSS Framework |
+| Technology  | Usage             |
+| ----------- | ----------------- |
+| Node.js     | Backend Runtime   |
+| Express.js  | Web Framework     |
+| EJS         | Templating Engine |
+| AdminLTE    | UI Template       |
+| Bootstrap 5 | CSS Framework     |
 
 ---
 
@@ -78,52 +82,53 @@ Browser Response
 
 ## ⚙️ Installation & Setup
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/your-username/AdminPanel.git
-cd AdminPanel
-```
-
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Start the server**
+
 ```bash
 npm start
 ```
 
 4. **Open in browser**
+
 ```
-http://localhost:3000
+http://localhost:8000
 ```
 
 ---
 
 ## 🔗 Available Routes
 
-| Route | Page |
-|-------|------|
-| `/` | Dashboard |
-| `/tables` | Tables |
-| `/forms` | Forms |
-| `/mailbox` | Mailbox |
+| Route      | Page      |
+| ---------- | --------- |
+| `/`        | Dashboard |
+| `/tables`  | Tables    |
+| `/forms`   | Forms     |
+| `/mailbox` | Mailbox   |
 
 ---
 
 ## 📸 Screenshots
 
 ### Dashboard
+
 ![Dashboard](public/assets/screenshots/ss1.png)
 
 ### Tables
+
 ![Tables](public/assets/screenshots/ss4.png)
 
 ### Forms
+
 ![Forms](public/assets/screenshots/ss3.png)
 
 ### Mailbox
+
 ![Mailbox](public/assets/screenshots/ss2.png)
 
 ---
