@@ -1,0 +1,27 @@
+body {
+  background-color: #141414;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.movie-card {
+  background-color: #1f1f1f;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+.movie-card img {
+  height: 300px;
+  object-fit: cover;
+}
+.card-title {
+  font-weight: 600;
+}
+.movie-card .card-title,
+.movie-card .card-text {
+    color: #ffffff;
+}
