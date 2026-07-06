@@ -1,12 +1,21 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const dashboardController = require('../controllers/dashboardController')
+const dashboardController = require("../controllers/dashboardController");
 
-router.get('/',dashboardController.index)
-router.get('/tables',dashboardController.tables)
-router.get('/forms' , dashboardController.forms)
-router.get('/login' , dashboardController.login)
-router.get('/mailbox' , dashboardController.mailbox)
+const authMiddleware = require("../middlewares/auth.js");
 
-module.exports = router
+router.get("/", authMiddleware, dashboardController.index);
+router.get("/tables", authMiddleware, dashboardController.tables);
+router.get("/forms", authMiddleware, dashboardController.forms);
+router.get("/mailbox", authMiddleware, dashboardController.mailbox);
+
+router.get("/signup", dashboardController.signup);
+router.post("/signup", dashboardController.signupSubmit);
+
+router.get("/login", dashboardController.login);
+router.post("/login", dashboardController.loginSubmit);
+
+router.get("/logout", dashboardController.logout);
+
+module.exports = router;
