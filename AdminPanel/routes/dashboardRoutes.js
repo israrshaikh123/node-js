@@ -3,18 +3,22 @@ const router = express.Router();
 
 const dashboardController = require("../controllers/dashboardController");
 
-const authMiddleware = require("../middlewares/auth.js");
+const isAuthenticated = require("../middlewares/setAuthenticated.js");
+const passport = require("passport");
 
-router.get("/", authMiddleware, dashboardController.index);
-router.get("/tables", authMiddleware, dashboardController.tables);
-router.get("/forms", authMiddleware, dashboardController.forms);
-router.get("/mailbox", authMiddleware, dashboardController.mailbox);
+router.get("/", isAuthenticated, dashboardController.index);
+router.get("/tables", isAuthenticated, dashboardController.tables);
+router.get("/forms", isAuthenticated, dashboardController.forms);
+router.get("/mailbox", isAuthenticated, dashboardController.mailbox);
 
 router.get("/signup", dashboardController.signup);
 router.post("/signup", dashboardController.signupSubmit);
 
 router.get("/login", dashboardController.login);
-router.post("/login", dashboardController.loginSubmit);
+router.post("/login", passport.authenticate("local", {
+    successRedirect : "/",
+    failureRedirect : "/login"
+}));
 
 router.get("/logout", dashboardController.logout);
 

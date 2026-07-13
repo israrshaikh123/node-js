@@ -34,31 +34,13 @@ const dashboardController = {
     res.redirect("/");
   },
 
-  loginSubmit: async (req, res) => {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-
-    console.log(user);
-    if (!user) {
-      res.send("User Not Found");
-    } else {
-      const isMatch = await bcrypt.compare(password, user.password);
-
-      console.log(isMatch);
-
-      if (isMatch === true) {
-        res.cookie("userId", user._id);
-        res.redirect("/");
-      } else {
-        res.send("Invalaid Password");
+  logout: (req, res, next) => {
+    req.logout((err) => {
+      if (err) {
+        next(err);
       }
-    }
-  },
-
-  logout: (req, res) => {
-    res.clearCookie("userId");
-    res.redirect("/login");
+      res.redirect("/login");
+    });
   },
 };
 module.exports = dashboardController;

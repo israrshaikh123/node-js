@@ -1,12 +1,25 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");  
+const cookieParser = require("cookie-parser");
+const expressSession = require("express-session");
+const passport = require("passport");
+require ('./config/passport');
 
 app.set("view engine", "ejs");
-app.use(express.static("public")); 
-app.use(express.urlencoded({extended : true}))
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(
+  expressSession({
+    secret: "SecretKeyIsrar",
+    resave: false,
+    saveUninitialized : false
+  }),
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 const dashboardRoutes = require("./routes/dashboardRoutes");
 app.use("/", dashboardRoutes);
