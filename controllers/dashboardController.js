@@ -1,8 +1,24 @@
 const User = require("../models/User.js");
+const Category = require("../models/Category.js");
+const Subcategory = require("../models/Subcategory.js");
+const Extracategory = require("../models/ExtraCategory.js");
+const Product = require("../models/Product.js");
+
 const bcrypt = require("bcrypt");
 const dashboardController = {
-  index: (req, res) => {
-    res.render("dashboard", { activePage: "dashboard" });
+  index: async (req, res) => {
+    const categoryCount = await Category.countDocuments();
+    const subcategoryCount = await Subcategory.countDocuments();
+    const extracategoryCount = await Extracategory.countDocuments();
+    const productCount = await Product.countDocuments();
+
+    res.render("dashboard", {
+      categoryCount,
+      subcategoryCount,
+      extracategoryCount,
+      productCount,
+      activePage: "dashboard",
+    });
   },
   tables: (req, res) => {
     res.render("tables", { activePage: "tables" });
@@ -18,7 +34,7 @@ const dashboardController = {
   },
 
   signup: (req, res) => {
-    res.render("signup");
+    res.render("signup", { activePage: "signup" });
   },
 
   signupSubmit: async (req, res) => {
@@ -34,31 +50,13 @@ const dashboardController = {
     res.redirect("/");
   },
 
-  loginSubmit: async (req, res) => {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
-
-    console.log(user);
-    if (!user) {
-      res.send("User Not Found");
-    } else {
-      const isMatch = await bcrypt.compare(password, user.password);
-
-      console.log(isMatch);
-
-      if (isMatch === true) {
-        res.cookie("userId", user._id);
-        res.redirect("/");
-      } else {
-        res.send("Invalaid Password");
+  logout: (req, res, next) => {
+    req.logout((err) => {
+      if (err) {
+        next(err);
       }
-    }
-  },
-
-  logout: (req, res) => {
-    res.clearCookie("userId");
-    res.redirect("/login");
+      res.redirect("/login");
+    });
   },
 };
 module.exports = dashboardController;

@@ -1,0 +1,104 @@
+<%- include('partials/head') %>
+
+    <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+        <div class="app-wrapper">
+            <%- include('partials/navbar') %>
+                <%- include('partials/sidebar') %>
+                    <main class="app-main">
+                        <div class="app-content-header">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h3 class="mb-0">User Management</h3>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ol class="breadcrumb float-sm-end">
+                                            <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">User Management</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-content">
+                            <div class="container-fluid">
+
+                                <% if (success.length> 0) { %>
+                                    <div class="alert alert-success alert-dismissible">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-hidden="true"></button>
+                                        <%= success %>
+                                    </div>
+                                    <% } %>
+
+                                        <% if (error.length> 0) { %>
+                                            <div class="alert alert-danger alert-dismissible">
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-hidden="true"></button>
+                                                <%= error %>
+                                            </div>
+                                            <% } %>
+
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h3 class="card-title">All Users</h3>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <table class="table table-striped table-hover mb-0">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Role</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% users.forEach(function(u) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= u.name %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= u.email %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= u.role %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <form action="/updateUserRole/<%= u._id %>"
+                                                                                method="post" class="d-flex gap-2">
+                                                                                <select name="role"
+                                                                                    class="form-select form-select-sm"
+                                                                                    style="width: auto;">
+                                                                                    <option value="employee"
+                                                                                        <%=u.role==="employee"
+                                                                                        ? "selected" : "" %>>Employee
+                                                                                    </option>
+                                                                                    <option value="manager"
+                                                                                        <%=u.role==="manager"
+                                                                                        ? "selected" : "" %>>Manager
+                                                                                    </option>
+                                                                                    <option value="admin"
+                                                                                        <%=u.role==="admin" ? "selected"
+                                                                                        : "" %>>Admin</option>
+                                                                                    <option value="superadmin"
+                                                                                        <%=u.role==="superadmin"
+                                                                                        ? "selected" : "" %>>Super Admin
+                                                                                    </option>
+                                                                                </select>
+                                                                                <button type="submit"
+                                                                                    class="btn btn-sm btn-primary">Update</button>
+                                                                            </form>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <% }) %>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                            </div>
+                        </div>
+                    </main>
+                    <%- include('partials/footer') %>
