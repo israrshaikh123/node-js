@@ -1,0 +1,61 @@
+<%- include('partials/head') %>
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <%- include('partials/navbar') %>
+        <%- include('partials/sidebar') %>
+          <main class="app-main">
+            <div class="app-content-header">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3 class="mb-0">Add Subcategory</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-end">
+                      <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Add Subcategory</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="app-content">
+              <div class="container-fluid">
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Subcategory Details</h3>
+                      </div>
+                      <form action="/addSubcategory" method="post">
+                        <div class="card-body">
+                          <div class="mb-3">
+                            <label for="name" class="form-label">Subcategory Name</label>
+                            <input type="text" name="name" id="name" class="form-control"
+                              placeholder="Subcategory name">
+                          </div>
+                          <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select name="category" id="category" class="form-select">
+                              <% categories.forEach(function(cat) { %>
+                                <option value="<%= cat._id %>">
+                                  <%= cat.name %>
+                                </option>
+                                <% }) %>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">Add Subcategory</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </main>
+          <%- include('partials/footer') %>

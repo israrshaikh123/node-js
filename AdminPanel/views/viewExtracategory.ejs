@@ -1,0 +1,73 @@
+<%- include('partials/head') %>
+
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <%- include('partials/navbar') %>
+        <%- include('partials/sidebar') %>
+          <main class="app-main">
+            <div class="app-content-header">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <h3 class="mb-0">View Extracategory</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-end">
+                      <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">View Extracategory</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="app-content">
+              <div class="container-fluid">
+
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">Extracategory List</h3>
+                    <div class="card-tools">
+                      <a href="/addExtracategory" class="btn btn-primary btn-sm">Add Extracategory</a>
+                    </div>
+                  </div>
+                  <div class="card-body p-0">
+                    <table class="table table-striped table-hover mb-0">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Subcategory</th>
+                          <th>Category</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% extracategories.forEach(function(ec) { %>
+                          <tr>
+                            <td>
+                              <%= ec.name %>
+                            </td>
+                            <td>
+                              <%= ec.subcategory ? ec.subcategory.name : "N/A" %>
+                            </td>
+                            <td>
+                              <%= ec.subcategory && ec.subcategory.category ? ec.subcategory.category.name : "N/A" %>
+                            </td>
+                            <td>
+                              <%= ec.status %>
+                            </td>
+                            <td>
+                              <a href="/editExtracategory/<%= ec._id %>" class="btn btn-sm btn-warning">Edit</a>
+                              <a href="/deleteExtracategory/<%= ec._id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                          </tr>
+                          <% }) %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </main>
+          <%- include('partials/footer') %>
