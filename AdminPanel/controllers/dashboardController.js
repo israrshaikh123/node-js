@@ -5,6 +5,7 @@ const Extracategory = require("../models/ExtraCategory.js");
 const Product = require("../models/Product.js");
 
 const bcrypt = require("bcrypt");
+
 const dashboardController = {
   index: async (req, res) => {
     const categoryCount = await Category.countDocuments();

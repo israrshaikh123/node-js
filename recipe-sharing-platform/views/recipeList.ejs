@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Recipes | Culinary Corner</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/navbar', { user: user }) %>
+
+  <div class="container">
+    <h1 class="page-title">All Recipes</h1>
+
+    <% if (recipes.length === 0) { %>
+      <p class="empty-state">No recipes yet. Be the first to share one!</p>
+    <% } else { %>
+      <div class="recipe-grid">
+        <% recipes.forEach(recipe => { %>
+          <div class="recipe-card">
+            <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+            <div class="content">
+              <h3><%= recipe.title %></h3>
+              <div class="meta">
+                By <%= recipe.author.username %> · <%= recipe.cookingTime %> min
+              </div>
+              <span class="tag"><%= recipe.cuisine %></span>
+              <div class="card-actions">
+                <a href="/recipes/<%= recipe._id %>" class="btn btn-outline">View Recipe</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

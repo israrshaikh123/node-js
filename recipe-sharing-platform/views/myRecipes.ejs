@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Recipes | Culinary Corner</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/navbar', { user: user }) %>
+
+  <div class="container">
+    <h1 class="page-title">My Recipes</h1>
+
+    <% if (recipes.length === 0) { %>
+      <p class="empty-state">You haven't added any recipes yet. <a href="/recipes/new" style="color:var(--tomato-dark); font-weight:600;">Add one now</a>.</p>
+    <% } else { %>
+      <div class="recipe-grid">
+        <% recipes.forEach(recipe => { %>
+          <div class="recipe-card">
+            <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+            <div class="content">
+              <h3><%= recipe.title %></h3>
+              <div class="meta"><%= recipe.cookingTime %> min · <%= recipe.cuisine %></div>
+              <div class="card-actions">
+                <a href="/recipes/<%= recipe._id %>" class="btn btn-outline">View</a>
+                <a href="/recipes/<%= recipe._id %>/edit" class="btn btn-secondary">Edit</a>
+                <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" style="display:inline;">
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this recipe?')">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

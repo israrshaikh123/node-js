@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    <%= recipe.title %> | Culinary Corner
+  </title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('partials/navbar', { user: user }) %>
+
+    <div class="container">
+      <div class="recipe-detail">
+        <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+        <div class="content">
+          <h1>
+            <%= recipe.title %>
+          </h1>
+          <div class="meta">
+            By <%= recipe.author.username %> · <%= recipe.cookingTime %> min ·
+                <span class="tag">
+                  <%= recipe.cuisine %>
+                </span>
+          </div>
+
+          <h3>Ingredients</h3>
+          <ul class="ingredients-list">
+            <% recipe.ingredients.forEach(ing=> { %>
+              <li>
+                <%= ing %>
+              </li>
+              <% }) %>
+          </ul>
+
+          <h3>Instructions</h3>
+          <p>
+            <%= recipe.instructions %>
+          </p>
+
+          <% if (user && (user.id===recipe.author._id.toString() || user.role==='admin' )) { %>
+            <div class="card-actions">
+              <a href="/recipes/<%= recipe._id %>/edit" class="btn btn-secondary">Edit</a>
+              <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger"
+                  onclick="return confirm('Delete this recipe?')">Delete</button>
+              </form>
+            </div>
+            <% } %>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

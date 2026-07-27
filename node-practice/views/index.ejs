@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO App</title>
+</head>
+
+<body>
+    <h1>Todo App</h1>
+    <ul>
+        <% todos.forEach(function(todo) { %>
+            <li>
+                <%= todo.task %>
+                    <form action="/delete/<%= todo._id %>" method="POST" style=" display:inline">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <a href="/edit/<%= todo.id %>">Edit</a>
+            </li>
+
+            <%}) %>
+    </ul>
+
+    <form action="/add" method="post">
+        <input type="text" name="task" placeholder="Enter new task" required>
+        <button type="submit">Add Todo</button>
+    </form>
+
+</body>
+
+</html>
