@@ -43,6 +43,15 @@ app.use("/api/patients", patientRoutes);
 const appointmentRoutes = require("./routes/appointmentRoutes.js");
 app.use("/api/appointments", appointmentRoutes);
 
+const prescriptionRoutes = require("./routes/prescriptionRoutes.js");
+app.use("/api/prescriptions", prescriptionRoutes);
+
+const medicalReportRoutes = require("./routes/medicalReportRoutes.js");
+app.use("/api/reports", medicalReportRoutes);
+
+const dashboardRoutes = require("./routes/dashboardRoutes.js");
+app.use("/api/dashboard", dashboardRoutes);
+
 const PORT = 8000;
 app.listen(PORT, () => {
   console.log(`Server Is Running On port ${PORT}`);
